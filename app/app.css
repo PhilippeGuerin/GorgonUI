@@ -1,0 +1,240 @@
+body {
+  padding: 20px;
+}
+
+h1 {
+  border-bottom: 1px solid gray;
+  margin-top: 0;
+}
+
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+
+.banner { 
+       top: 0; 
+       left: 0;
+       width: 100%;
+     }
+
+.banner-content { 
+       width: 800px; 
+       margin: 0 auto;
+	   font-size: 2em;
+	   font-weight: bold;
+	   text-align: center;
+	   cursor: pointer;
+     }
+.banner-content img {
+  height: 32px;
+  width: 32px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+/* View: Phone list */
+.phones {
+  list-style: none;
+}
+
+.phones li {
+  clear: both;
+  height: 115px;
+  padding-top: 15px;
+}
+
+/* View: Gorgon list */
+.gorgons {
+  list-style: none;
+}
+
+.gorgons li {
+  clear: both;
+  height: 110px;
+  padding-top: 5px;
+}
+
+.gorgon a {
+  font-size: 1.2em
+}
+
+.button {
+  float: right;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+}
+
+.add-button {
+  float: left;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+}
+
+.thumb {
+  float: left;
+  height: 100px;
+  margin: 0 1em 1.5em 0;
+  padding-bottom: 1em;
+  width: 100px;
+}
+
+/* View: Phone detail */
+.phone {
+  background-color: white;
+  display: none;
+  float: left;
+  height: 400px;
+  margin-bottom: 2em;
+  margin-right: 3em;
+  padding: 2em;
+  width: 400px;
+}
+
+.phone:first-child {
+  display: block;
+}
+
+.gorgon-images {
+  background-color: white;
+  float: left;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  width: 200px;
+}
+
+.phone-images {
+  background-color: white;
+  float: left;
+  height: 450px;
+  overflow: hidden;
+  position: relative;
+  width: 450px;
+}
+
+.phone-thumbs {
+  list-style: none;
+  margin: 0;
+}
+
+.phone-thumbs img {
+  height: 100px;
+  padding: 1em;
+  width: 100px;
+}
+
+.phone-thumbs li {
+  background-color: white;
+  border: 1px solid black;
+  cursor: pointer;
+  display: inline-block;
+  margin: 1em;
+}
+
+.specs {
+  clear: both;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.specs dt {
+  font-weight: bold;
+}
+
+.specs > li {
+  display: inline-block;
+  vertical-align: top;
+  width: 200px;
+}
+
+.specs > li > span {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+
+.manager {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.manager md-grid-list {
+  margin: 8px; }
+.manager md-icon {
+  margin: 15% 25% 35% 25%;
+  width: 75%;
+  height: auto;
+}
+.manager .gray {
+  background: #f5f5f5; }
+.manager .green {
+  background: #b9f6ca; }
+.manager .yellow {
+  background: #ffff8d; }
+.manager .blue {
+  background: #84ffff; }
+.manager .purple {
+  background: #b388ff; }
+.manager .red {
+  background: #ff8a80; }
+.manager md-grid-tile {
+  transition: all 400ms ease-out 50ms; }
+
+.runningProcess{
+  background-color: #caffbb;
+}
+.completedProcess{
+  background-color: #c8c8c8;
+}
+.failedProcess{
+  background-color: #ffc1c1;
+}
+
+md-tooltip .md-content {
+    height: auto;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+.process md-divider {
+  margin-top: 0;
+  margin-bottom: 0; }
+.process md-list {
+  padding-top: 0; }
+.process md-list-item > p,
+.process md-list-item > ._md-list-item-inner > p,
+.process md-list-item ._md-list-item-inner > p,
+.process md-list-item ._md-list-item-inner > ._md-list-item-inner > p {
+  -webkit-user-select: none;
+  /* Chrome all / Safari all */
+  -moz-user-select: none;
+  /* Firefox all */
+  -ms-user-select: none;
+  /* IE 10+ */
+  user-select: none;
+  /* Likely future */ }
+
+.right-side {
+  text-align: right;
+  margin-left: 8px;
+}
+
+.list-item-2 {
+  width: 200%;
+}
+
+md-sidenav {
+  width: auto;
+  max-width: 912px;
+}
+
+.selectedRow {
+  background-color: #c6b7ff;
+}
+

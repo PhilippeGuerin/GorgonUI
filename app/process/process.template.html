@@ -1,0 +1,49 @@
+<div class="process">
+  <md-toolbar layout="row" class="md-hue-1" ng-click="$ctrl.showHideServers()">
+    <div class="md-toolbar-tools" >
+      <span>Servers (and Applications)</span>
+    </div>
+	<md-tooltip md-direction="bottom">
+      Click to show/hide server list
+    </md-tooltip>
+  </md-toolbar>
+
+  <md-list ng-cloak>	
+	<md-list-item ng-repeat="server in $ctrl.servers" class="md-2-line" ng-if="$ctrl.showServers" ng-click="$ctrl.changeActiveStatus(server)">
+	    <md-checkbox aria-label="Active" ng-model="server.active"></md-checkbox>
+		<div class="md-list-item-text">
+		  <md-tooltip md-direction="bottom" md-delay="1500">
+		    <pre>{{ $ctrl.formatConnectionString(server.connectionString) }}</pre>
+		  </md-tooltip>
+		  <h3>{{ server.serverName }}</h3>
+		</div>
+		<span class="right-side">
+          {{ $ctrl.formatLastComputed(server.lastComputed) }}
+        </span>
+	</md-list-item>
+	
+	<md-divider ng-if="($ctrl.showServers) && ($ctrl.selectedServers > 0)"></md-divider>
+	
+	<md-list-item class="noright" ng-if="($ctrl.showServers) && ($ctrl.selectedServers > 0)">
+	  <md-button class="md-primary" ng-click="$ctrl.analyze()">Analyze {{$ctrl.selectedServers}} server(s)</md-button>
+	</md-list-item>
+  </md-list>
+
+  <md-toolbar layout="row" class="md-hue-1" ng-click="$ctrl.showHideProcesses()">
+    <div class="md-toolbar-tools">
+      <span>Processes {{ $ctrl.runningProcesses > 0 ? '(' + $ctrl.runningProcesses + ' running' : '' }}{{ $ctrl.pendingProcesses > 0 ? ' - ' + $ctrl.pendingProcesses + ' pending' : '' }}{{ $ctrl.runningProcesses > 0 ? ')' : ''}}</span>
+    </div>
+	<md-tooltip md-direction="bottom">
+      Click to show/hide process list
+    </md-tooltip>
+  </md-toolbar>
+  <md-list ng-cloak>
+    <md-list-item ng-repeat="process in $ctrl.processes" class="noright" ng-class="{failedProcess: process.state == -1,completedProcess: process.state == 2, runningProcess: process.state == 1}" ng-if="$ctrl.showProcesses">
+	    <h4>{{process.started | date:'yyyy-MM-dd HH:mm:ss'}} {{ process.name }}</h4>{{process.state == 1 ? ' - started ' + $ctrl.formatDuration(process.duration) + ' ago' : ''}}{{process.state == -1 ? ' - failed in ' + $ctrl.formatDuration(process.duration) : ''}}{{process.state == 2 ? ' - completed in ' + $ctrl.formatDuration(process.duration) : ''}}
+		<md-tooltip md-direction="bottom" ng-if="process.output">
+          <pre>{{process.output}}</pre>
+        </md-tooltip>
+	  <md-button class="md-secondary" ng-if="process.state == 0" ng-click="$ctrl.cancelProcess(process.id)">{{process.state == 0 ? 'Cancel' : ''}}</md-button>
+	</md-list-item>
+  </md-list>
+</div>

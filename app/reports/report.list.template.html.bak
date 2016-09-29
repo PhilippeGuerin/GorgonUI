@@ -1,0 +1,17 @@
+<md-dialog aria-label="List" style="min-width=70%;">
+  <md-toolbar layout="row" class="md-hue-1" ng-click="ctrl.closeDialog()">
+    <div class="md-toolbar-tools" >
+      <span>{{ ctrl.metricName }}</span>
+    </div>
+	<md-tooltip md-direction="bottom">
+      Click here or outside of the box to close it
+    </md-tooltip>
+  </md-toolbar>
+  <md-list ng-cloak>
+	<md-list-item class="secondary-button-padding" ng-repeat="data in ctrl.listData" style="min-height: 100%;height: 2em;"> 
+	  <p> - {{ data.numValue != 0 ? data.numValue : "" }} {{ data.numValue2 != 0 ? data.numValue2 : "" }} {{ data.numValue3 != 0 ? data.numValue3 : "" }} 
+		{{ data.charValue ? data.charValue : "" }} {{ data.charValue2 ? data.charValue2 : "" }} {{ data.charValue3 ? data.charValue3 : "" }} 
+	  </p>
+	</md-list-item>
+  </md-list>
+</md-dialog>

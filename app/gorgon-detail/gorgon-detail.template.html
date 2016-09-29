@@ -1,0 +1,35 @@
+<div class="gorgon-images">
+  <img src="img/postgreSQL.jpg" class="gorgon" />
+</div>
+<form editable-form name="editableForm" onaftersave="$ctrl.saveGorgon()">
+	<h1><span href="#" editable-text="$ctrl.gorgon.name" ng-click="editableForm.$show()">{{$ctrl.gorgon.name || "Enter Gorgon Server Name"}}</span></h1>
+	<table>
+	<tr>
+		<th>Url</th>
+		<td><span href="#" editable-text="$ctrl.gorgon.url" ng-click="editableForm.$show()">{{$ctrl.gorgon.url || "localhost"}}</span></td>
+		<th>Port</th>
+		<td><span href="#" editable-number="$ctrl.gorgon.port" ng-click="editableForm.$show()">{{$ctrl.gorgon.port || "2280"}}</span></td>
+		<th>Database</th>
+		<td><span href="#" editable-text="$ctrl.gorgon.database" ng-click="editableForm.$show()">{{$ctrl.gorgon.database || "postgres"}}</span></td>
+	</tr>
+	<tr>
+		<th>Login</th>
+		<td><span href="#" editable-text="$ctrl.gorgon.login" ng-click="editableForm.$show()">{{$ctrl.gorgon.login || "operator"}}</span></td>
+		<th>Password</th>
+		<td><span href="#" editable-password="$ctrl.gorgon.password" ng-click="editableForm.$show()">{{$ctrl.gorgon.password}}</span></td>
+		<th>Schema</th>
+		<td><span href="#" editable-text="$ctrl.gorgon.schema" ng-click="editableForm.$show()">{{$ctrl.gorgon.schema || "gorgon"}}</span></td>
+	</tr>
+	</table>
+	<div>
+	<!-- buttons to submit / cancel form -->
+	<span ng-show="editableForm.$visible">
+		<button type="submit" class="btn btn-primary" ng-disabled="editableForm.$waiting">
+			Save
+		</button>
+		<button type="button" class="btn btn-default" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
+			Cancel
+		</button>
+	</span>
+	</div>
+	</form>

@@ -1,0 +1,20 @@
+'use strict';
+
+// Define the `phonecatApp` module
+angular.module('phonecatApp', [
+  'ngAnimate',
+  'ngRoute',
+  'xeditable',
+  'ngMaterial',
+  'core',
+  'phoneDetail',
+  'phoneList',
+  'gorgonList',
+  'gorgonDetail',
+  'manager',
+  'process',
+  'metrics',
+  'reports',
+  'servers',
+  'process',,
+]);

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en" ng-app="phonecatApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Gorgon</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+	<link rel="stylesheet" href="bower_components/angular-xeditable/dist/css/xeditable.css">
+	<link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
+    <link rel="stylesheet" href="app.css" />
+    <link rel="stylesheet" href="app.animations.css" />
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+	<script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+
+    <script src="app.module.js"></script>
+    <script src="app.config.js"></script>
+    <script src="app.animations.js"></script>
+    <script src="core/core.module.js"></script>
+    <script src="core/checkmark/checkmark.filter.js"></script>
+    <script src="core/phone/phone.module.js"></script>
+    <script src="core/phone/phone.service.js"></script>
+    <script src="phone-list/phone-list.module.js"></script>
+    <script src="phone-list/phone-list.component.js"></script>
+    <script src="phone-detail/phone-detail.module.js"></script>
+    <script src="phone-detail/phone-detail.component.js"></script>
+
+    <script src="core/gorgon/gorgon.module.js"></script>
+    <script src="core/gorgon/gorgon.service.js"></script>
+    <script src="core/server/server.module.js"></script>
+    <script src="core/server/server.service.js"></script>
+    <script src="core/metric/metric.module.js"></script>
+    <script src="core/metric/metric.service.js"></script>
+    <script src="core/process/process.module.js"></script>
+    <script src="core/process/process.service.js"></script>
+
+    <script src="gorgon-list/gorgon-list.module.js"></script>
+    <script src="gorgon-list/gorgon-list.component.js"></script>
+    <script src="gorgon-detail/gorgon-detail.module.js"></script>
+    <script src="gorgon-detail/gorgon-detail.component.js"></script>
+    <script src="manager/manager.module.js"></script>
+    <script src="manager/manager.component.js"></script>
+    <script src="process/process.module.js"></script>
+    <script src="process/process.component.js"></script>
+    <script src="servers/servers.module.js"></script>
+    <script src="servers/servers.component.js"></script>
+    <script src="metrics/metrics.module.js"></script>
+    <script src="metrics/metrics.component.js"></script>
+    <script src="reports/reports.module.js"></script>
+    <script src="reports/reports.component.js"></script>
+  </head>
+  <body>
+    <div class="banner">
+	  <div class="banner-content" onclick="location.href=''"><img src="img/gorgon.png">Gorgon<img src="img/gorgon.png">
+	  </div>
+	</div>
+
+    <div class="view-container">
+      <div ng-view class="view-frame"></div>
+    </div>
+
+  </body>
+</html>

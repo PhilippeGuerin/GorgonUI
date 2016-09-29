@@ -1,0 +1,22 @@
+'use strict';
+
+angular.
+  module('core.schemaMetric').
+  factory('SchemaMetric', ['$resource', 
+    function($resource) {
+      return $resource('rest/gorgons/:gorgonId/schemas/:schemaId/metrics', {}, {
+        query: {
+          method: 'GET',
+          isArray: true,
+		  params: {gorgonId: 'gorgons', schemaId: 'schemas'}
+        },
+		get: {
+		  url: 'rest/gorgons/:gorgonId/schemas/:schemaId/metrics/:metricId',
+		  method: 'GET',
+		  isArray: true,
+          params: {gorgonId: 'gorgons', schemaId: 'schemas', metricId: 'metrics'}
+		}
+      });
+    }
+  ]);
+

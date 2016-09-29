@@ -1,0 +1,33 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+      <!--Sidebar content-->
+
+      <p>
+        Search:
+        <input ng-model="$ctrl.query" />
+      </p>
+
+    </div>
+    <div class="col-md-10">
+      <!--Body content-->
+
+      <ul class="gorgons">
+        <li ng-repeat="gorgon in $ctrl.gorgons | filter:$ctrl.query"
+            class="thumbnail gorgon-list-item">
+		  <img src="img/postgreSQL.jpg" class="thumb">
+          <div class="gorgon"><a href="#!/gorgons/{{gorgon.id}}/manager">{{gorgon.name}}</a></div>
+		   - {{gorgon.url}}:{{gorgon.port}}/{{gorgon.database}}
+		  <br/> - {{gorgon.schema}}
+		  <img ng-click="$ctrl.deleteGorgon(gorgon.id)" src="img/server-delete.png" alt="Delete" title="Delete" class="button">
+		  <a href="#!/gorgons/{{gorgon.id}}"><img src="img/server-edit.png" alt="Edit" title="Edit" class="button"></a>
+        </li>
+		<li class="thumbnail gorgon-list-item"> 
+			<img src="img/postgreSQL.jpg" class="thumb">
+			<div class="gorgon"><a href="#!/gorgons/-1">Add New Gorgon Server</a></div>
+			Register a new gorgon server. You'll need the url, credentials and schema name in order to do so.
+		</li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,102 @@
+<div class="reports" layout="column" style="height:85vh;" ng-cloak>
+  <section layout="row" flex>
+    <md-sidenav
+        class="md-sidenav-left"
+        md-component-id="serversNav"
+        md-disable-backdrop
+        md-whiteframe="4">
+	<div layout="row">
+	  <div>
+        <md-toolbar class="md-theme-indigo">
+          <h1 class="md-toolbar-tools">Servers</h1>
+        </md-toolbar>
+        <md-content layout-padding>
+		  <md-list ng-cloak>
+		    <md-list-item ng-repeat="server in $ctrl.servers" ng-click="$ctrl.openSchemaChooser(server.serverId)"
+				ng-class="{selectedRow: server.serverId == $ctrl.selectedServerId}">
+			  <div class="list-item-2">
+			    {{ server.serverName }}
+			  </div>
+			  <!--<div layout="row">
+			     <div>
+			      <md-icon ng-click="$ctrl.setServerId(server.serverId)" aria-label="Show Report"
+					md-svg-src="img/report.svg">
+					<md-tooltip md-direction="left">
+		              Show Report for Server
+		            </md-tooltip>
+			      </md-icon>
+			    </div> 
+				<div>
+			      <md-icon ng-click="$ctrl.openSchemaChooser(server.serverId)" aria-label="Schemas"
+					md-svg-src="img/greater.svg">
+					<md-tooltip md-direction="left">
+		              Open Schemas List
+		            </md-tooltip>
+			      </md-icon>
+			    </div>
+			  </div>-->
+		    </md-list-item>
+		  </md-list>
+        </md-content>
+	  </div>
+	  <div ng-if="$ctrl.showSchemas">
+        <md-toolbar class="md-theme-indigo">
+          <h1 class="md-toolbar-tools">Schemas</h1>
+        </md-toolbar>
+ 		  <md-list ng-cloak>
+		    <md-list-item class="noright" ng-if="!$ctrl.schemas">
+		      <div class="md-list-item-text">
+			    <p> Loading Schemas... </p>
+			  </div>	  
+		    </md-list-item>
+			<md-list-item class="noright" ng-if="$ctrl.schemas.length == 0">
+		      <div class="md-list-item-text">
+			    <p> No Schemas or unable to connect to this server </p>
+			  </div>	  
+		    </md-list-item>
+		    <md-list-item ng-repeat="schema in $ctrl.schemas" class="noright" ng-click="$ctrl.setSchemaId(schema.schemaId)" 
+				ng-class="{selectedRow: schema.schemaId == $ctrl.selectedSchemaId}">
+		      <div class="md-list-item-text">
+			    <p> {{ schema.name }} ({{ schema.schemaTypeId.name }}) </p>
+			  </div>	  
+		    </md-list-item>
+		  </md-list>
+	    </div>
+	  </div>
+    </md-sidenav>
+    <md-content flex layout-padding>
+	  <div layout="row">
+	    <div>
+		  <div>
+		    <md-icon class="md-secondary" ng-click="$ctrl.openServers()" aria-label="Servers"
+				md-svg-src="img/smaller.svg">
+		      <md-tooltip md-direction="right">
+		        Open Server List
+		      </md-tooltip>
+		    </md-icon>
+		  </div>
+	    </div>
+        <div layout-fill layout="column" layout-align="top center">
+		  <div>
+            Reporting for server {{ $ctrl.selectedServerId }} and Schema {{ $ctrl.selectedSchemaId }}
+			({{ $ctrl.listData.length }})
+		  </div>
+		  <div style="width: 100%;">
+		  <md-list ng-cloak>
+		    <md-list-item class="secondary-button-padding" ng-if="!$ctrl.metricsData">
+			  <p>No Results! Run an analysis first.</p>
+		    </md-list-item>
+			<md-list-item class="secondary-button-padding" ng-repeat="metricData in $ctrl.metricsData"> 
+			  <p>{{ metricData.metric.metricName }}</p>
+			  <span class="right-side" ng-if="metricData.data.length == 0">
+				  {{ metricData.count }}
+			  </span>
+			  <md-button class="md-secondary" ng-click="$ctrl.showList(metricData.data)" ng-if="metricData.data.length > 0">Show List</md-button>
+		    </md-list-item>
+		  </md-list>
+		  </div>
+        </div>
+	  </div>
+    </md-content>
+  </section>
+</div>
